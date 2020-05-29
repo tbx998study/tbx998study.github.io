@@ -154,6 +154,230 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-第一个spring boot项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/29/%E7%AC%AC%E4%B8%80%E4%B8%AAspring%20boot%E9%A1%B9%E7%9B%AE/">第一个spring boot项目</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/29/%E7%AC%AC%E4%B8%80%E4%B8%AAspring%20boot%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+  	<time datetime="2020-05-29T14:36:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="springboot是什么？"><a href="#springboot是什么？" class="headerlink" title="springboot是什么？"></a>springboot是什么？</h2><p><strong>以下是百度百科对它的定义：</strong></p>
+<p>Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应用开发领域(rapid application development)成为领导者。</p>
+<h2 id="新建spring-boot项目的两种方式："><a href="#新建spring-boot项目的两种方式：" class="headerlink" title="新建spring boot项目的两种方式："></a>新建spring boot项目的两种方式：</h2><p><strong>第一种：</strong></p>
+<p>1.进入spring boot的官网：<a href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener">https://spring.io/projects/spring-boot</a> 附上链接</p>
+<p>2.点击quickstart</p>
+<p>![image-20200529213158068](D:\my-blog\source_posts\第一个spring boot项目\image-20200529213158068.png) </p>
+<p>3.进入页面，点击链接：</p>
+<p><img src="/2020/05/29/%E7%AC%AC%E4%B8%80%E4%B8%AAspring%20boot%E9%A1%B9%E7%9B%AE/C:%5CUsers%5C96591%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200529213345675.png" alt="image-20200529213345675"></p>
+<p>4.进入新建项目页面：</p>
+<p>![image-20200529213827632](D:\my-blog\source_posts\第一个spring boot项目\image-20200529213827632.png)</p>
+<p>5.填写完毕后，点击下方的generate按钮即可生成项目的文件：</p>
+<p>![image-20200529214022019](D:\my-blog\source_posts\第一个spring boot项目\image-20200529214022019.png)</p>
+<p><img src="/2020/05/29/%E7%AC%AC%E4%B8%80%E4%B8%AAspring%20boot%E9%A1%B9%E7%9B%AE/C:%5CUsers%5C96591%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200529214054562.png" alt="image-20200529214054562"></p>
+<p>以上就是在官网创建spring boot项目啦<del>~</del>，然后要做的事是：在本地的编译器打开我们的项目就好了：</p>
+<p>1.打开我们的idea：</p>
+<p>![image-20200529214246279](D:\my-blog\source_posts\第一个spring boot项目\image-20200529214246279.png)</p>
+<p>选择第二个：open or import,导入我们的spring boot项目。</p>
+<p>2.导入以后的样子：</p>
+<p>![image-20200529214453723](D:\my-blog\source_posts\第一个spring boot项目\image-20200529214453723.png)</p>
+<p>哈哈，如果出现maven依赖导入异常的问题，可以点击File—&gt;settings—-&gt;找到下图的maven配置：</p>
+<p>![image-20200529214714522](D:\my-blog\source_posts\第一个spring boot项目\image-20200529214714522.png)</p>
+<p>因为idea默认使用的maven是它自带的版本，当然如果你没有在本地下载maven也可以使用它的哦，建议下一个，用自己更好啦<del>~</del>其次配好maven的版本之后，我们要看一下它的配置文件，即maven安装路径下的conf文件夹里的settings.xml文件:</p>
+<p>![image-20200529215055868](D:\my-blog\source_posts\第一个spring boot项目\image-20200529215055868.png)</p>
+<p>打开它以后，我们找到大约第152行的位置上，有一个配置maven的镜像仓库下载地址节点：</p>
+<p>![image-20200529215233706](D:\my-blog\source_posts\第一个spring boot项目\image-20200529215233706.png)</p>
+<p>把它配置成如上，可以看出来，我们用的是阿里云的镜像仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">  &lt;id&gt;aliyunmaven&lt;&#x2F;id&gt;</span><br><span class="line">  &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;</span><br><span class="line">  &lt;name&gt;aliyun maven&lt;&#x2F;name&gt;</span><br><span class="line">  &lt;url&gt;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;public&lt;&#x2F;url&gt;</span><br><span class="line">&lt;&#x2F;mirror&gt;</span><br></pre></td></tr></table></figure>
+
+<p>搞定以上操作之后，咱们maven的配置就结束啦<del>接下来就可以干大事了，哇哦，有点小兴奋呢</del></p>
+<p><strong>第二种：</strong></p>
+<p>上面我们介绍了第一种方式创建spring boot项目，接下来我们开始第二种：</p>
+<p>1.还是先打开idea：</p>
+<p>![image-20200529215631613](D:\my-blog\source_posts\第一个spring boot项目\image-20200529215631613.png)</p>
+<p>不同的是，这次我们选择第一个，新建项目:</p>
+<p>2.进来以后，我们选择spring initializr 这个选项，你会发现：有一个我们熟悉的网址出现在这里</p>
+<p>![image-20200529215857736](D:\my-blog\source_posts\第一个spring boot项目\image-20200529215857736.png)</p>
+<p>这个网址不就是我们第一种方法的创建地址嘛，没错，就是它，idea为我们集成了spring boot的创建模块，点击next即可</p>
+<p>![image-20200529220124389](D:\my-blog\source_posts\第一个spring boot项目\image-20200529220124389.png)</p>
+<p>3.进来以后一看，一模一样有木有！！！那就不多说啦，改完这些东东以后，点击next即可：</p>
+<p>![image-20200529220232088](D:\my-blog\source_posts\第一个spring boot项目\image-20200529220232088.png)</p>
+<p>4.这个页面，就是选择我们需要添加的依赖，在方框里勾选即可，选完以后，点击next</p>
+<p>5.选择项目的路径，点击finish即可完成项目的创建：</p>
+<p>![image-20200529220440392](D:\my-blog\source_posts\第一个spring boot项目\image-20200529220440392.png)</p>
+<p>到这里spring boot的新项目创建的两种方式就介绍完毕啦<del>~</del>，接下来我们就可以熟悉下项目的结构。</p>
+<h2 id="spring-boot项目的结构"><a href="#spring-boot项目的结构" class="headerlink" title="spring boot项目的结构"></a>spring boot项目的结构</h2><p>打开我们刚刚建好的spring boot项目：</p>
+<p>你可以看到：</p>
+<p>![image-20200529220818652](D:\my-blog\source_posts\第一个spring boot项目\image-20200529220818652.png)</p>
+<p>这样的结构，具体作用：</p>
+<p>![image-20200529222003930](D:\my-blog\source_posts\第一个spring boot项目\image-20200529222003930.png)</p>
+<p><strong>注意：spring boot配置文件可以以.properties为后缀的文件形式存在，也可以以.yml后缀的文件形式存在，在同一个项目里，可以有多个配置文件存在，以满足开发，生产阶段的不同需求</strong>。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/29/%E7%AC%AC%E4%B8%80%E4%B8%AAspring%20boot%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-创建第一个springboot项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/29/%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAspringboot%E9%A1%B9%E7%9B%AE/">创建第一个springboot项目</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/29/%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAspringboot%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+  	<time datetime="2020-05-29T13:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="springboot是什么？"><a href="#springboot是什么？" class="headerlink" title="springboot是什么？"></a>springboot是什么？</h2><p><strong>以下是百度百科对它的定义：</strong></p>
+<p>Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应用开发领域(rapid application development)成为领导者。</p>
+<h2 id="新建spring-boot项目的两种方式："><a href="#新建spring-boot项目的两种方式：" class="headerlink" title="新建spring boot项目的两种方式："></a>新建spring boot项目的两种方式：</h2><p><strong>第一种：</strong></p>
+<p>1.进入spring boot的官网：<a href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener">https://spring.io/projects/spring-boot</a> 附上链接</p>
+<p>2.点击quickstart</p>
+<p>![image-20200529213158068](D:\my-blog\source_posts\第一个spring boot项目\image-20200529213158068.png) </p>
+<p>3.进入页面，点击链接：</p>
+<p>![image-20200529213345675](D:\my-blog\source_posts\第一个spring boot项目\image-20200529213345675.png)</p>
+<p>4.进入新建项目页面：</p>
+<p><img src="/2020/05/29/%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAspringboot%E9%A1%B9%E7%9B%AE/C:%5CUsers%5C96591%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200529213827632.png" alt="image-20200529213827632"></p>
+<p>5.填写完毕后，点击下方的generate按钮即可生成项目的文件：</p>
+<p><img src="/2020/05/29/%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAspringboot%E9%A1%B9%E7%9B%AE/C:%5CUsers%5C96591%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200529214022019.png" alt="image-20200529214022019"></p>
+<p>![image-20200529214054562](D:\my-blog\source_posts\第一个spring boot项目\image-20200529214054562.png)</p>
+<p>以上就是在官网创建spring boot项目啦<del>~</del>，然后要做的事是：在本地的编译器打开我们的项目就好了：</p>
+<p>1.打开我们的idea：</p>
+<p>![image-20200529214246279](D:\my-blog\source_posts\第一个spring boot项目\image-20200529214246279.png)</p>
+<p>选择第二个：open or import,导入我们的spring boot项目。</p>
+<p>2.导入以后的样子：</p>
+<p>![image-20200529214453723](D:\my-blog\source_posts\第一个spring boot项目\image-20200529214453723.png)</p>
+<p>哈哈，如果出现maven依赖导入异常的问题，可以点击File—&gt;settings—-&gt;找到下图的maven配置：</p>
+<p>![image-20200529214714522](D:\my-blog\source_posts\第一个spring boot项目\image-20200529214714522.png)</p>
+<p>因为idea默认使用的maven是它自带的版本，当然如果你没有在本地下载maven也可以使用它的哦，建议下一个，用自己更好啦<del>~</del>其次配好maven的版本之后，我们要看一下它的配置文件，即maven安装路径下的conf文件夹里的settings.xml文件:</p>
+<p>![image-20200529215055868](D:\my-blog\source_posts\第一个spring boot项目\image-20200529215055868.png)</p>
+<p>打开它以后，我们找到大约第152行的位置上，有一个配置maven的镜像仓库下载地址节点：</p>
+<p>![image-20200529215233706](D:\my-blog\source_posts\第一个spring boot项目\image-20200529215233706.png)</p>
+<p>把它配置成如上，可以看出来，我们用的是阿里云的镜像仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">  &lt;id&gt;aliyunmaven&lt;&#x2F;id&gt;</span><br><span class="line">  &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;</span><br><span class="line">  &lt;name&gt;aliyun maven&lt;&#x2F;name&gt;</span><br><span class="line">  &lt;url&gt;https:&#x2F;&#x2F;maven.aliyun.com&#x2F;repository&#x2F;public&lt;&#x2F;url&gt;</span><br><span class="line">&lt;&#x2F;mirror&gt;</span><br></pre></td></tr></table></figure>
+
+<p>搞定以上操作之后，咱们maven的配置就结束啦<del>接下来就可以干大事了，哇哦，有点小兴奋呢</del></p>
+<p><strong>第二种：</strong></p>
+<p>上面我们介绍了第一种方式创建spring boot项目，接下来我们开始第二种：</p>
+<p>1.还是先打开idea：</p>
+<p>![image-20200529215631613](D:\my-blog\source_posts\第一个spring boot项目\image-20200529215631613.png)</p>
+<p>不同的是，这次我们选择第一个，新建项目:</p>
+<p>2.进来以后，我们选择spring initializr 这个选项，你会发现：有一个我们熟悉的网址出现在这里</p>
+<p>![image-20200529215857736](D:\my-blog\source_posts\第一个spring boot项目\image-20200529215857736.png)</p>
+<p>这个网址不就是我们第一种方法的创建地址嘛，没错，就是它，idea为我们集成了spring boot的创建模块，点击next即可</p>
+<p>![image-20200529220124389](D:\my-blog\source_posts\第一个spring boot项目\image-20200529220124389.png)</p>
+<p>3.进来以后一看，一模一样有木有！！！那就不多说啦，改完这些东东以后，点击next即可：</p>
+<p>![image-20200529220232088](D:\my-blog\source_posts\第一个spring boot项目\image-20200529220232088.png)</p>
+<p>4.这个页面，就是选择我们需要添加的依赖，在方框里勾选即可，选完以后，点击next</p>
+<p>5.选择项目的路径，点击finish即可完成项目的创建：</p>
+<p>![image-20200529220440392](D:\my-blog\source_posts\第一个spring boot项目\image-20200529220440392.png)</p>
+<p>到这里spring boot的新项目创建的两种方式就介绍完毕啦<del>~</del>，接下来我们就可以熟悉下项目的结构。</p>
+<h2 id="spring-boot项目的结构"><a href="#spring-boot项目的结构" class="headerlink" title="spring boot项目的结构"></a>spring boot项目的结构</h2><p>打开我们刚刚建好的spring boot项目：</p>
+<p>你可以看到：</p>
+<p>![image-20200529220818652](D:\my-blog\source_posts\第一个spring boot项目\image-20200529220818652.png)</p>
+<p>这样的结构，具体作用：</p>
+<p>![image-20200529222003930](D:\my-blog\source_posts\第一个spring boot项目\image-20200529222003930.png)</p>
+<p><strong>注意：spring boot配置文件可以以.properties为后缀的文件形式存在，也可以以.yml后缀的文件形式存在，在同一个项目里，可以有多个配置文件存在，以满足开发，生产阶段的不同需求</strong>。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/29/%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAspringboot%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
